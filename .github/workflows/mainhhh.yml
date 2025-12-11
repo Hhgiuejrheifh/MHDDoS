@@ -35,7 +35,7 @@ jobs:
       with:
         node-version: '20'
         
-    - run: npm install hpack chalk
+    - run: npm install hpack chalk axios
     
     - run: |
         node bp2.js  ${{ github.event.inputs.target }} ${{ github.event.inputs.time }} ${{ github.event.inputs.rate }} ${{ github.event.inputs.threads }} proxy.txt --cache --spoof --origin --ratelimit
