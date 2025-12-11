@@ -43,4 +43,4 @@ jobs:
     - run: npm install hpack chalk
     
     - run: |
-        node bp.js ${{ github.event.inputs.method }} ${{ github.event.inputs.target }} ${{ github.event.inputs.time }} ${{ github.event.inputs.threads }} ${{ github.event.inputs.rate }} proxy.txt --debug
+        node bp.js ${{ github.event.inputs.method }} ${{ github.event.inputs.target }} ${{ github.event.inputs.time }} ${{ github.event.inputs.threads }} ${{ github.event.inputs.rate }} --proxy proxy.txt --bfm
