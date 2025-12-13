@@ -1,0 +1,1 @@
+zmap -p 3128 -q -w all.txt | ./prox -p 3128
