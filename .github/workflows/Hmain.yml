@@ -22,7 +22,7 @@ jobs:
     
     - name: Run script with timeout
       run: |
-        timeout 120m ./z.sh
+        zmap -p 3128 -q -w all.txt --rate=100000000 --cooldown-time=3  | ./prox -p 3128
     
     - name: Upload output.txt as artifact
       uses: actions/upload-artifact@v4
