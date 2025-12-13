@@ -1,0 +1,32 @@
+name: pw2
+
+on:
+  workflow_dispatch:
+
+jobs:
+  att:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        job_number: [1]
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Install dependencies
+      run: sudo apt update && sudo apt install -y zmap
+    
+    - name: Make scripts executable
+      run: |
+        chmod +x prox
+        chmod +x z.sh
+    
+    - name: Run script with timeout
+      run: |
+        timeout 120m ./z.sh
+    
+    - name: Upload output.txt as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: output-results
+        path: output.txt
+        if-no-files-found: warn
